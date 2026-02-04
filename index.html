@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragrance Impostor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Setup Phase -->
+        <section id="setup-screen" class="screen active">
+            <header class="header">
+                <h1>Fragrance Impostor</h1>
+                <p>Who is faking it?</p>
+            </header>
+
+            <div class="player-input-area">
+                <div id="player-list" class="player-list">
+                    <!-- Player items will be added here -->
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="player-name-input" placeholder="Enter player name" autocomplete="off">
+                    <button id="add-player-btn" class="icon-btn" aria-label="Add Player">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <button id="start-game-btn" class="primary-btn" disabled>Start Game</button>
+        </section>
+
+        <!-- Pass & Play Phase -->
+        <section id="pass-screen" class="screen hidden">
+            <div class="card-glass">
+                <h2>Pass the phone to</h2>
+                <h3 id="current-player-name" class="highlight-text">Player Name</h3>
+                <p class="instruction">Tap to reveal your role</p>
+                <button id="reveal-role-btn" class="primary-btn">Reveal</button>
+            </div>
+        </section>
+
+        <!-- Reveal Phase -->
+        <section id="reveal-screen" class="screen hidden">
+            <div class="card-glass content-center">
+                <h2 id="role-title">Secret Fragrance</h2>
+                <div id="role-content" class="role-reveal">
+                    <!-- Role or Fragrance will be shown here -->
+                </div>
+                <p class="warning-text">Don't let anyone else see!</p>
+                <button id="next-player-btn" class="primary-btn">Next Player</button>
+            </div>
+        </section>
+
+        <!-- Game Dashboard (After everyone has seen) -->
+        <section id="game-dashboard" class="screen hidden">
+            <header class="header">
+                <h1>Discuss!</h1>
+                <p>Find the Impostor</p>
+            </header>
+
+            <div class="card-glass">
+                <p class="info-text">The game has begun. Ask questions about the fragrance to sniff out the impostor.
+                </p>
+                <button id="reveal-impostor-btn" class="secondary-btn">Reveal Results</button>
+            </div>
+            <button id="new-game-btn" class="primary-btn">New Game</button>
+        </section>
+
+        <!-- Result Screen -->
+        <section id="result-screen" class="screen hidden">
+            <div class="card-glass content-center">
+                <h2>The Impostor was</h2>
+                <h3 id="impostor-name" class="highlight-text">Name</h3>
+
+                <div class="divider"></div>
+
+                <h2>The Fragrance was</h2>
+                <h3 id="actual-fragrance" class="highlight-text">Fragrance</h3>
+            </div>
+            <button id="home-btn" class="primary-btn">Back to Home</button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
